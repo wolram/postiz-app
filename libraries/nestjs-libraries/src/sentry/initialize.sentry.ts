@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/nestjs';
-import { nodeProfilingIntegration } from '@sentry/profiling-node';
+// import { nodeProfilingIntegration } from '@sentry/profiling-node';
 import { capitalize } from 'lodash';
 
 export const initializeSentry = (appName: string, allowLogs = false) => {
@@ -25,7 +25,7 @@ export const initializeSentry = (appName: string, allowLogs = false) => {
       spotlight: process.env.SENTRY_SPOTLIGHT === '1',
       integrations: [
         // Add our Profiling integration
-        nodeProfilingIntegration(),
+        // nodeProfilingIntegration(),
         Sentry.consoleLoggingIntegration({ levels: ['log', 'info', 'warn', 'error', 'debug', 'assert', 'trace'] }),
         Sentry.openAIIntegration({
           recordInputs: true,
